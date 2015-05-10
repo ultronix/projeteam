@@ -1,15 +1,15 @@
 # projeteam
-## note Romain structure (à lire svp)
+## Note Romain structure (à lire svp) 10/05/2015
 
-C'est une todo-list, rien à voir avec le projet mais c'est histoire d'avoir une structure propre et que tout le monde puisse comprendre<br>
-Vous avez juste à faire la commande meteor pour faire marcher le projet<br>
+C'est une todo-list, rien à voir avec le projet mais c'est histoire d'avoir une structure propre et que tout le monde puisse comprendre.<br>
+Vous avez juste à faire la commande meteor pour faire marcher le projet.<br>
 
 * J'ai adapté le todo de base à une structure qui m'a semblé clair/simple avec iron router d'intégré
 * Enlevé auto-publish et insecure
 * ajouté accounts-ui et accounts-password
 * ajouté iron router
 
-### Si vous n'avez pas fait le [tuto de base](https://www.meteor.com/install) faites-le.
+### Si vous n'avez pas fait le [tuto de base](https://www.meteor.com/install) faites-le avant de lire la suite (sérieusement faites-le)
 
 * Le dossier server ne s'execute que coté server
 --* Il n'y a qu'un fichier publish.js qui sert à publier les ressources voulues
