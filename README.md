@@ -21,5 +21,5 @@ Vous avez juste à faire la commande meteor pour faire marcher le projet.<br>
 * lib s'execute avant tout autre chose
 
 Je vous laisse regarder ce qu'il y a dedans pour que vous compreniez, évidemment ce n'est pas définitif.<br>
-Donnez vos impressions svp
+Donnez vos impressions svp<br>
 PS : j'ai écris ProjectTeam au lieu de Projeteam sorry
