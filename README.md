@@ -12,11 +12,11 @@ Vous avez juste à faire la commande meteor pour faire marcher le projet.<br>
 ### Si vous n'avez pas fait le [tuto de base](https://www.meteor.com/install) faites-le avant de lire la suite (sérieusement faites-le)
 
 * Le dossier server ne s'execute que coté server
--- Il n'y a qu'un fichier publish.js qui sert à publier les ressources voulues
+<br> Il n'y a qu'un fichier publish.js qui sert à publier les ressources voulues
 * Le dossier client ne s'execute que coté client
--- head.html sera le header appelé à chaque fois, il faudrait au mieux faire un fichier layout.html qui contiendra le header, le footer, le menu etc. et qui sera utiliser pour chaque page
--- Le fichier template contiendra le corps des pages (ex : on appelle layout.html à chaque fois et on charge le contenu correspondant à la page dans ce dossier)
--- Les pages en .js sont les "controller" de leur homonyme en .html
+<br> head.html sera le header appelé à chaque fois, il faudrait au mieux faire un fichier layout.html qui contiendra le header, le footer, le menu etc. et qui sera utiliser pour chaque page
+<br> Le fichier template contiendra le corps des pages (ex : on appelle layout.html à chaque fois et on charge le contenu correspondant à la page dans ce dossier)
+<br> Les pages en .js sont les "controller" de leur homonyme en .html
 * common s'execute des deux côtés et contiendra toutes nos methods
 * lib s'execute avant tout autre chose
 
