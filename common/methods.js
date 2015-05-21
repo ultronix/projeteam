@@ -1,42 +1,55 @@
+
+// common s'execute coté client/server
 Meteor.methods({
-  addTask: function (text) {
-    // Make sure the user is logged in before inserting a task
+  addAnnonces: function (titre, description, tel, personne, mail, tags) {
+    // vérifie si l'user est connecté
     if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
-    Tasks.insert({
-      text: text,
+
+    Annonces.insert({
+      titre: titre,
+      description: description,
+      tel: tel,
+      personne: personne,
+      mail: mail,
+      tags: tags,
       createdAt: new Date(),
       owner: Meteor.userId(),
       username: Meteor.user().username
     });
-  },
-  deleteTask: function (taskId) {
-    var task = Tasks.findOne(taskId);
-    if (task.private && task.owner !== Meteor.userId()) {
-      // If the task is private, make sure only the owner can delete it
+  },  
+  modifAnnonces: function (c_id, titre, description, tel, personne, mail, tags) {
+    // vérifie si l'user est connecté
+    if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
-
-    Tasks.remove(taskId);
+    /*
+Tasks.update(taskId, { $set: { checked: setChecked} });*/
+    Annonces.update(c_id, 
+        { $set : 
+          {
+          titre: titre,
+          description: description,
+          tel: tel,
+          personne: personne,
+          mail: mail,
+          tags: tags
+          }
+      });
   },
-  setChecked: function (taskId, setChecked) {
-    var task = Tasks.findOne(taskId);
-    if (task.private && task.owner !== Meteor.userId()) {
-      // If the task is private, make sure only the owner can check it off
-      throw new Meteor.Error("not-authorized");
-    }
-
-    Tasks.update(taskId, { $set: { checked: setChecked} });
+  deleteAnnonce: function (contactId) {
+    Annonces.remove(contactId);
+    $(".modal-backdrop").remove();
   },
-  setPrivate: function (taskId, setToPrivate) {
-    var task = Tasks.findOne(taskId);
-
-    // Make sure only the task owner can make a task private
-    if (task.owner !== Meteor.userId()) {
-      throw new Meteor.Error("not-authorized");
-    }
-
-    Tasks.update(taskId, { $set: { private: setToPrivate } });
+  seeInfo: function (thisId) {
+    return  Annonces.findOne({_id: thisId});
+  },
+  update: function () {
+    return  update = true;
+  },  
+  endup: function () {
+    return  update = false;
   }
-});
+
+})

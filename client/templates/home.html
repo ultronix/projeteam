@@ -1,50 +1,178 @@
+
 <head>
-  <title>Todo List</title>
+  <title>ProjectTeam</title>
+  <meta name="viewport" content="width=device-width"/>
 </head>
 
-<body>
-  <div class="container">
-    <header>
-      <h1>Todo List ({{incompleteCount}})</h1>
+<template name="Home">
 
-      <label class="hide-completed">
-        <input type="checkbox" checked="{{hideCompleted}}" />
-        Hide Completed Tasks
-      </label>
-
-      {{> loginButtons}}
-
+  <body>
+    <div class="container">
+      <h1 class="text-center first-title">ProjectTeam</h1>
+      <div class="login btn btn-primary">{{> loginButtons}}</div>
+      <!-- si l'user est connecté on affiche sa liste -->
       {{#if currentUser}}
-        <form class="new-task">
-          <input type="text" name="text" placeholder="Type to add new tasks" />
-        </form>
+        {{> hello}}
+        {{> liste}}
+      {{else}}
+      Veuillez vous connectez
       {{/if}}
-    </header>
 
-    <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
+      
+    </div>
+    
+  </body>
+
+</template>
+
+
+<template name="hello">
+ 
+ 
+   {{> searchBox}}
+  <div class="row">
+
+    <div class="col-md-11 title">
+      <h1>Annonce</h1>
+      {{> ajout}}
+      <hr>
+    </div>
+  </div>
+</template>
+
+
+  <!-- instant searchbox -->
+<template name="searchBox">
+  <div class="row">
+    <div class="col-md-11 title">
+      <h1>Recherche d'une annonce</h1>
+      {{> esInput index="annonces" placeholder="Chercher un annonce" class="pull-right btn btn-default"}}
+      <hr>
+    </div>
+  </div>
+    <ul class="row">
+     <!--  resultat research instant -->
+        {{#esEach index="annonces"}}
+            <li class="col-md-6"><a class="thisAnnonce" href="#" data-toggle="modal" data-target="#{{_id}}"><div>{{titre}}</div></a></li>
+        {{/esEach}}
+    </ul>
+      {{#ifEsHasNoResults index="annonces"}}
+        <div class="no-results">Aucun résultat</div>
+    {{/ifEsHasNoResults}}
+</template>
+
+  <!-- ajout d'un annonce -->
+<template name="ajout">
+
+  <div class="dropdown pull-right">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+      Ajouter une annonce
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      <form class="new-annonce">
+      <li role="presentation"><label>Titre</label><input required type="text" name="titre" placeholder="Titre" /></li>
+      <li role="presentation"><label>Description</label><input type="text" name="description" placeholder="Description" /></li>
+      <li role="presentation"><label>Téléphone</label><input type="tel" name="tel" placeholder="TELEPHONE" /></li>
+      <li role="presentation"><label>Personne(s) recherchée(s)</label><input type="text" name="personne" placeholder="ex : developpeur php" /></li>
+      <li role="presentation"><label>Mail</label><input type="email" name="mail" placeholder="MAIL" /></li>
+      <li role="presentation"><label>Tags</label><input type="text" name="tags" placeholder="Tags" /></li>
+      <li role="presentation"><input class="btn btn-success" type="submit" value="Submit"></li>
+      </form>
     </ul>
   </div>
-</body>
 
-<template name="task">
-  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
-    <button class="delete">&times;</button>
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-    {{#if isOwner}}
-      <button class="toggle-private">
-        {{#if private}}
-          Private    
-        {{else}}
-          Public
-        {{/if}}
-      </button>
-    {{/if}}
-
-    <span class="text"><strong>{{username}}</strong> - {{text}}</span>
-  </li>
 </template>
+
+
+<template name="liste">
+
+
+  {{#if annonce}} <!-- si il a des annonces -->
+  <div class="row list">
+    {{#each annonce}} 
+      {{>annonces}} 
+    {{/each}}
+   </div>
+  {{else}}
+  Vous n'avez pas de annonces
+  {{/if}}
+
+  
+</template>
+
+<template name="annonces">
+
+<div class="col-md-6">
+      <a class="thisAnnonce" href="#" data-toggle="modal" data-target="#{{_id}}"> <!--  Envoie vers la pop -->
+        <div>
+          {{titre}}
+        </div>
+      </a>
+      <button class="areUSure" data-toggle="modal" data-target="#myModal">&times;</button>
+    </div> 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Voulez-vous vraiment supprimer ce annonce ?</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success close delete" data-dismiss="modal"  aria-label="Close">Oui</button>
+            <button type="button" class="btn btn-danger close" data-dismiss="modal">Non</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pop up info du annonce  -->
+
+    <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Info du annonce</h4>
+          </div>
+          <div class="modal-body">
+            <ul>
+              {{#if update}}
+                <!-- Si on a cliqué sur update on met le formulaire d'update -->
+               {{>formodif}}
+              {{else}}
+                <li>Titre : {{titre}}</li>
+                <li>Description : {{description}}</li>
+                <li>Téléphone : {{tel}}</li>
+                <li>Personne(s) recherchée(s) : {{personne}}</li>
+                <li>Mail : {{mail}}</li>
+                <li>Tags : {{tags}}</li>
+                <button class="btn btn-primary mt-10" id='update'>Modifier</button>  
+              {{/if}}
+              
+            </ul>
+           
+
+          </div>
+          <div class="modal-footer">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+</template>
+
+<!-- formulaire modif annonce -->
+<template name="formodif">
+
+  <form class="modif" id="{{_id}}">
+    <li>Titre : <input required type="text" name="titre" value="{{titre}}" /></li>
+    <li>Description : <input  type="text" name="description" value="{{description}}" /></li>
+    <li>Téléphone : <input  type="tel" name="tel" value="{{tel}}" /></li>
+    <li>Personne(s) recherchée(s) : <input  type="text" name="personne" value="{{personne}}" /></li>
+    <li>Mail : <input  type="email" name="mail" value="{{mail}}" /></li>
+    <li>Tags : <input  type="email" name="tags" value="{{tags}}" /></li>
+    <button class="btn btn-success mt-10" type="submit" value='Submit' >Valider</button>
+  </form>
+
+</template>
+

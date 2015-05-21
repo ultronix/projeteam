@@ -1,0 +1,103 @@
+/* CSS declarations go here */
+body {
+  	font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+  	font-size: 12px;
+  	line-height: 1.167;
+  	color: #333;
+  	background-color: #333;
+}
+
+.container {
+  	background-color: #fff;
+  	margin-top: 20px;
+  	border-radius: 3px;
+  	position: relative;
+}
+
+.text-center {
+	text-align: center;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+.login {
+	position: absolute;
+	left: 15px;
+	top: 21px;
+	padding: 0;
+}
+@media screen and (max-width: 560px) {
+  .first-title {
+    margin-top: 70px;
+  }
+}
+.login .login-link-text{
+	padding: 8px 14px;
+	display: block;
+}
+
+#login-dropdown-list {
+	top: 7px;
+  	left: 10px;
+}
+
+.login-form label{
+	display: block;
+	text-align: left;
+}
+
+a {
+  text-decoration: none;
+}
+.title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.title h1 {
+  display: inline-block;
+  margin: 0;
+}
+
+.dropdown input{
+  display: block;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.dropdown-menu {
+  padding: 10px;
+}
+
+.col-md-6 {
+  padding: 0;
+  text-align: center;
+}
+
+ .col-md-6 a {
+  display: block;
+  padding: 5px 15px;
+  color: #333
+}
+ .col-md-6 a div{
+  border-radius: 5px;
+  padding: 5px;
+  border: 3px solid #eee;
+}
+.list .col-md-6 button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+li {
+  list-style: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
