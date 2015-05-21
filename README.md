@@ -1,4 +1,10 @@
 # projeteam
+
+## Note Romain 21/05
+
+On peut se connecter, ajouter des annonces, modifier/supprimer ses annonces, voir les annonces de tout le monde via une searchbar
+
+
 ## Note Romain structure (à lire svp) 10/05/2015
 
 C'est une todo-list, rien à voir avec le projet mais c'est histoire d'avoir une structure propre et que tout le monde puisse comprendre.<br>
