@@ -6,8 +6,8 @@
 
 meteor-platform
 iron:router
-accounts-ui
 accounts-password
 less
 nemo64:bootstrap
 matteodem:easy-search
+accounts-base

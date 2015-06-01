@@ -8,8 +8,11 @@
 
   <body>
     <div class="container">
-      <h1 class="text-center first-title">ProjectTeam</h1>
-      <div class="login btn btn-primary">{{> loginButtons}}</div>
+      <img src="logo.png" class="logo">
+      <h1 class="text-center first-title">ProjecTeam</h1>
+      <span class="under-title">lorem ipsum dolor sit amet</span>
+      {{> login}}
+      {{> register}}
       <!-- si l'user est connecté on affiche sa liste -->
       {{#if currentUser}}
         {{> hello}}
@@ -23,6 +26,26 @@
     
   </body>
 
+</template>
+
+<template name="login">
+   <form id="login-form" action="action">
+      <div>
+        <input type="email" id="login-email" />
+        <input type="password" id="login-password" />
+        <input type="submit" id="login-button" value="Sign in" />
+     </div>
+   </form>
+</template>
+
+<template name="register">
+   <form id="login-form" action="action">
+      <div>
+        <input type="email" id="login-email" />
+        <input type="password" id="login-password" />
+        <input type="submit" id="login-button" value="Sign in" />
+     </div>
+   </form>
 </template>
 
 
