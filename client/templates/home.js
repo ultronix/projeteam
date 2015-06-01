@@ -6,47 +6,10 @@
     }
   });
 
-  Template.login.events({
-
-    'submit #login-form' : function(e, t){
-      e.preventDefault();
-
-      var email = t.find('#login-email').value, 
-      password = t.find('#login-password').value;
-
-      Meteor.loginWithPassword(email, password, function(err){
-        if (err) {
-          console.log(email);
-        }          
-        else {
-          console.log("success");
-        }
-          
-      });
-         return false; 
-    }
-  });
-
-  Template.register.events({
-    'submit #register-form' : function(e, t) {
-      e.preventDefault();
-      var email = t.find('#account-email').value
-        , password = t.find('#account-password').value;
-
-        // Trim and validate the input
-
-      Accounts.createUser({email: email, password : password}, function(err){
-          if (err) {
-            console.log("error");
-          } else {
-            console.log("success");
-          }
-
-        });
-
-      return false;
-    }
-  });
+  Template.loginButtons.rendered = function()
+  {
+      Accounts._loginButtonsSession.set('dropdownVisible', true);
+  };
 
   Template.annonces.helpers({
     // si on est en mode update de Annonce

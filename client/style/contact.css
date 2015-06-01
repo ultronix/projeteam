@@ -3,7 +3,7 @@ body {
   	font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
   	font-size: 12px;
   	line-height: 1.167;
-  	color: #333;
+  	color: #ffffff;
   	background: url("background.jpg") no-repeat #2b303e;
     background-size: cover;
     
@@ -104,4 +104,44 @@ ul {
 
 .mt-10 {
   margin-top: 10px;
+}
+
+.btn-danger {
+  background-color: #d43346;
+  font-weight: bold;
+  padding: 20px 40px;
+  display: block;
+  max-width: 150px;
+  margin: 10px auto;
+  margin-top: 120px;
+  font-size: 17px;
+}
+
+.linkLogin,
+.passLost {
+  color: #ffffff;
+  display: block;
+  text-align: center;
+  font-size: 17px;
+  margin-top: 40px;
+}
+
+/***********************
+
+Login
+
+***********************/
+
+.login-link-text,
+.login-close-text,
+#login-username-label,
+#login-password-label {
+  display: none;
+}
+
+#login-username,
+#login-password{
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ffffff;
 }
