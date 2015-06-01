@@ -16,7 +16,7 @@
         {{> liste}}
       {{else}}
         {{> loginButtons}}
-        {{> loginOrRegister}}
+        {{> linkLogin}}
       {{/if}}
 
       
@@ -32,9 +32,9 @@
     <span class="under-title">lorem ipsum dolor sit amet</span>
 </template>
 
-<template name="loginOrRegister">
-   <a href="#" class="btn btn-danger">Créer un compte</a>
-   <a href="login" class="linkLogin">Déja un compte ?</a>
+<template name="linkLogin">
+   <a href="#" class="linkLogin">Déja un compte ?</a>
+   <a href="#" class="passLost">Mot de passe oublié ?</a>
 </template>
 
 

@@ -106,6 +106,7 @@ ul {
   margin-top: 10px;
 }
 
+.additional-link,
 .btn-danger {
   background-color: #d43346;
   font-weight: bold;
@@ -115,6 +116,8 @@ ul {
   margin: 10px auto;
   margin-top: 120px;
   font-size: 17px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .linkLogin,
@@ -132,16 +135,14 @@ Login
 
 ***********************/
 
-.login-link-text,
-.login-close-text,
-#login-username-label,
-#login-password-label {
-  display: none;
-}
-
 #login-username,
-#login-password{
+#login-password,
+#login-username:focus,
+#login-password:focus{
   background: transparent;
   border: none;
   border-bottom: 2px solid #ffffff;
+  width: 90%;
+  margin: 0 auto;
+  display: block;
 }
