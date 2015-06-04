@@ -1,5 +1,13 @@
 # projeteam
 
+## Note Albert 04/06
+
+* J'ai ajouter le fichier layout
+* J'ai mis temporairement un menu pour pouvoir tester les futurs pages
+* ajout de ajduke:bootstrap-tagsinput et mise en place des tags dans le formulaire
+* modification temporaire du css pour les tags car conflits
+* Petite modification du router.js
+
 ## Note Romain 21/05
 
 On peut se connecter, ajouter des annonces, modifier/supprimer ses annonces, voir les annonces de tout le monde via une searchbar

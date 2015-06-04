@@ -1,4 +1,10 @@
   Session.setDefault('update', false);
+
+
+  Template.ajout.rendered=function(){
+  // refresh après l'ajout d'un tag
+      $('#tags').tagsinput('refresh');
+  }
   Template.liste.helpers({
     annonce : function(){
       // retourne que les annonces dont l'user est propriétaire

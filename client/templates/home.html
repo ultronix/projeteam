@@ -1,13 +1,5 @@
 
-<head>
-  <title>ProjectTeam</title>
-  <meta name="viewport" content="width=device-width"/>
-</head>
-
-<template name="Home">
-
-  <body>
-    <div class="container">
+<template name="home">
       <h1 class="text-center first-title">ProjectTeam</h1>
       <div class="login btn btn-primary">{{> loginButtons}}</div>
       <!-- si l'user est connecté on affiche sa liste -->
@@ -17,21 +9,12 @@
       {{else}}
       Veuillez vous connectez
       {{/if}}
-
-      
-    </div>
-    
-  </body>
-
 </template>
 
 
 <template name="hello">
- 
- 
    {{> searchBox}}
   <div class="row">
-
     <div class="col-md-11 title">
       <h1>Annonce</h1>
       {{> ajout}}
@@ -71,12 +54,12 @@
     </button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
       <form class="new-annonce">
-      <li role="presentation"><label>Titre</label><input required type="text" name="titre" placeholder="Titre" /></li>
+      <li role="presentation"><label>Titre</label><input required type="text" name="titre" placeholder="Titre" data-role="tagsinput"/></li>
       <li role="presentation"><label>Description</label><input type="text" name="description" placeholder="Description" /></li>
       <li role="presentation"><label>Téléphone</label><input type="tel" name="tel" placeholder="TELEPHONE" /></li>
       <li role="presentation"><label>Personne(s) recherchée(s)</label><input type="text" name="personne" placeholder="ex : developpeur php" /></li>
       <li role="presentation"><label>Mail</label><input type="email" name="mail" placeholder="MAIL" /></li>
-      <li role="presentation"><label>Tags</label><input type="text" name="tags" placeholder="Tags" /></li>
+      <li role="presentation"><label>Tags</label><input type="text" id="tags" name="tags" placeholder="Tags" data-role="tagsinput"/></li>
       <li role="presentation"><input class="btn btn-success" type="submit" value="Submit"></li>
       </form>
     </ul>
@@ -90,15 +73,15 @@
 
   {{#if annonce}} <!-- si il a des annonces -->
   <div class="row list">
-    {{#each annonce}} 
-      {{>annonces}} 
+    {{#each annonce}}
+      {{>annonces}}
     {{/each}}
    </div>
   {{else}}
   Vous n'avez pas de annonces
   {{/if}}
 
-  
+
 </template>
 
 <template name="annonces">

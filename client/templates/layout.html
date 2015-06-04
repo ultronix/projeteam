@@ -1,0 +1,33 @@
+<head>
+    <title>ProjectTeam</title>
+    <meta name="viewport" content="width=device-width"/>
+</head>
+<body>
+</body>
+
+<template name="layout">
+    <header>
+        <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">ProjectTeam</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Projets</a></li>
+                    <li><a href="/create">Mes projets</a></li>
+                    <li><a href="/support">Recherche de Supports</a></li>
+                    <li><a href="/profil">Profil</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        {{>yield}}
+    </div>
+</template>  

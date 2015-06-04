@@ -101,3 +101,23 @@ ul {
 .mt-10 {
   margin-top: 10px;
 }
+
+/* CSS pour les tags temporaires à modifier*/
+.bootstrap-tagsinput .tag {
+    margin-right: 2px;
+    color: white;
+}
+.label-info {
+    background-color: #5bc0de;
+}
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
