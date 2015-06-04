@@ -8,13 +8,17 @@
   <body>
     <div class="container">
       
-      {{> header}}
-      
       <!-- si l'user est connecté on affiche sa liste -->
       {{#if currentUser}}
-        {{> hello}}
-        {{> liste}}
+        {{> littleHeader}}
+        <!-- IMG Integer en dur, a changer plus tard -->
+        <img class="profil-img" src="doge.png">
+        <div class="text-center">
+          {{> loginButtons}}
+          {{> linkMenu}}
+        </div>        
       {{else}}
+        {{> header}}
         {{> loginButtons}}
         {{> linkLogin}}
       {{/if}}
@@ -26,17 +30,40 @@
 
 </template>
 
+<!-- TEMPLATE FOR HEADER -->
+
 <template name="header">
    <img src="logo.png" class="logo">
     <h1 class="text-center first-title">ProjecTeam</h1>
     <span class="under-title">lorem ipsum dolor sit amet</span>
+</template> 
+
+<template name="littleHeader">
+  <div class="text-center l-header">
+    <img src="logo.png" class="logo-little">
+    <h1 class=" first-title-little">ProjecTeam</h1>
+  </div>
 </template>
+
+
+<!-- TEMPLATE FOR LOGIN -->
 
 <template name="linkLogin">
    <a href="#" class="linkLogin">Déja un compte ?</a>
    <a href="#" class="passLost">Mot de passe oublié ?</a>
 </template>
 
+
+<!-- TEMPLATE FOR MENU -->
+
+<template name="linkMenu">
+  <hr class="top-line">
+   <a href="projets" class="link-menu"><img src="logo.png" class="logo-little">Projets</a>
+   <a href="supports" class="link-menu"><img src="logo.png" class="logo-little">Supports</a>
+</template>
+
+
+<!-- TEMPLATE FOR BASIC CONTAINER -->
 
 <template name="hello">
  
@@ -53,7 +80,8 @@
 </template>
 
 
-  <!-- instant searchbox -->
+<!-- TEMPLATE FOR SEARCH -->
+
 <template name="searchBox">
   <div class="row">
     <div class="col-md-11 title">
@@ -73,7 +101,9 @@
     {{/ifEsHasNoResults}}
 </template>
 
-  <!-- ajout d'un annonce -->
+
+<!-- TEMPLATE FOR ADD PROJECT -->
+
 <template name="ajout">
 
   <div class="dropdown pull-right">
@@ -97,6 +127,8 @@
 </template>
 
 
+<!-- TEMPLATE FOR LIST PROJECT -->
+
 <template name="liste">
 
 
@@ -113,29 +145,32 @@
   
 </template>
 
+
+<!-- TEMPLATE FOR MODAL PROJECT -->
+
 <template name="annonces">
 
-<div class="col-md-6">
-      <a class="thisAnnonce" href="#" data-toggle="modal" data-target="#{{_id}}"> <!--  Envoie vers la pop -->
-        <div>
-          {{titre}}
+  <div class="col-md-6">
+    <a class="thisAnnonce" href="#" data-toggle="modal" data-target="#{{_id}}"> <!--  Envoie vers la pop -->
+      <div>
+        {{titre}}
+      </div>
+    </a>
+    <button class="areUSure" data-toggle="modal" data-target="#myModal">&times;</button>
+  </div> 
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Voulez-vous vraiment supprimer ce annonce ?</h4>
         </div>
-      </a>
-      <button class="areUSure" data-toggle="modal" data-target="#myModal">&times;</button>
-    </div> 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Voulez-vous vraiment supprimer ce annonce ?</h4>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success close delete" data-dismiss="modal"  aria-label="Close">Oui</button>
-            <button type="button" class="btn btn-danger close" data-dismiss="modal">Non</button>
-          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success close delete" data-dismiss="modal"  aria-label="Close">Oui</button>
+          <button type="button" class="btn btn-danger close" data-dismiss="modal">Non</button>
         </div>
       </div>
     </div>
+  </div>
 
     <!-- Pop up info du annonce  -->
 
@@ -173,7 +208,7 @@
 
 </template>
 
-<!-- formulaire modif annonce -->
+<!-- TEMPLATE FOR MODIF PROJECT -->
 <template name="formodif">
 
   <form class="modif" id="{{_id}}">
