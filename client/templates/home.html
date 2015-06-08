@@ -36,7 +36,7 @@
     <ul class="row">
      <!--  resultat research instant -->
         {{#esEach index="annonces"}}
-            <li class="col-md-6"><a class="thisAnnonce" href="#" data-toggle="modal" data-target="#{{_id}}"><div>{{titre}}</div></a></li>
+            <li class="col-md-6"><a class="thisAnnonce" href="annonce/{{_id}}" ><div>{{titre}}</div></a></li>
         {{/esEach}}
     </ul>
       {{#ifEsHasNoResults index="annonces"}}
