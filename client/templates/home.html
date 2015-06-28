@@ -7,6 +7,7 @@
         {{> hello}}
         {{> liste}}
       {{else}}
+        {{> login}}
       Veuillez vous connectez
       {{/if}}
 </template>
@@ -153,7 +154,7 @@
     <li>Téléphone : <input  type="tel" name="tel" value="{{tel}}" /></li>
     <li>Personne(s) recherchée(s) : <input  type="text" name="personne" value="{{personne}}" /></li>
     <li>Mail : <input  type="email" name="mail" value="{{mail}}" /></li>
-    <li>Tags : <input  type="email" name="tags" value="{{tags}}" /></li>
+    <li>Tags : <input  type="text" id="tags_modif" name="tags" value="{{tags}}" data-role="tagsinput"/></li>
     <button class="btn btn-success mt-10" type="submit" value='Submit' >Valider</button>
   </form>
 
