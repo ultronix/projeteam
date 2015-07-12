@@ -1,14 +1,12 @@
 
 <template name="home">
       <h1 class="text-center first-title">ProjectTeam</h1>
-      <div class="login btn btn-primary">{{> loginButtons}}</div>
       <!-- si l'user est connecté on affiche sa liste -->
       {{#if currentUser}}
         {{> hello}}
         {{> liste}}
       {{else}}
-        {{> login}}
-      Veuillez vous connectez
+        {{> welcome}}
       {{/if}}
 </template>
 

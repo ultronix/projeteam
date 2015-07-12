@@ -1,6 +1,5 @@
 <head>
     <title>ProjectTeam</title>
-    <meta name="viewport" content="width=device-width"/>
 </head>
 <body>
 </body>
@@ -23,6 +22,12 @@
                     <li><a href="/create">Mes projets</a></li>
                     <li><a href="/support">Recherche de Supports</a></li>
                     <li><a href="/profil">Profil</a></li>
+                    {{#if currentUser}}
+                    <li><a href="#" class="logout">Logout</a></li>
+                    {{else}}
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                    {{/if}}
                 </ul>
             </div>
         </div>

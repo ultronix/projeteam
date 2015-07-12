@@ -1,88 +1,18 @@
 <template name="register">
-    <form class="form-horizontal" id="signin">
-        <fieldset>
-            <legend>Création du trajet</legend>
-            <div class="alert alert-dismissable alert-danger" id="errorNotification">
-                <ul id="errorList">
-                </ul>
-            </div>
-            <div class="form-group">
-                <label for="email" class="col-lg-2 control-label">
-                    Email :
-                </label>
-                <div class="col-lg-10">
-                    <input class="form-control" type="email" id="email" name="registerEmail">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="registerPassword" class="col-lg-2 control-label">
-                Password :
-                </label>
-                <div class="col-lg-10">
-                    <input class="form-control" type="password" id="registerPassword" name="registerPassword">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="repeatPassword" class="col-lg-2 control-label">
-                    Password (again) :
-                </label>
-                <div class="col-lg-10">
-                    <input class="form-control" type="password" id="repeatPassword" name="repeatPassword">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="name" class="col-lg-2 control-label">
-                    Name :
-                </label>
-                <div class="col-lg-10">
-                    <input class="form-control" id="name" type="text" name="name">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="lastname" class="col-lg-2 control-label">
-                    Lastname :
-                </label>
-                <div class="col-lg-10">
-                    <input class="form-control" type="text" id="lastname" name="lastname">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="school" class="col-lg-2 control-label">
-                    School :
-                </label>
-                <div class="col-lg-10">
-                    <input class="form-control" type="text" id="school" name="school">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="promo" class="col-lg-2 control-label">
-                    Promo :
-                </label>
-                <div class="col-lg-10">
-                    <input class="form-control" type="text" id="promo" name="promo">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="tags" class="col-lg-2 control-label">
-                    Tags :
-                </label>
-                <div class="col-lg-10">
-                    <input class="form-control" type="text" name="tags" id="tags" data-role="tagsinput">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="date" class="col-lg-2 control-label">
-                    Date :
-                </label>
-                <div class="col-lg-10">
-                    <input class="form-control" type="date" id="date" name="date">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-10 col-lg-offset-2">
-                    <button id="create" type="submit" class="btn btn-primary">Register</button>
-                </div>
-            </div>
-        </fieldset>
+    <div class="alert alert-dismissable alert-danger" id="errorNotification">
+        <ul id="errorList">
+        </ul>
+    </div>
+    <form class="register">
+        <p>Email: <input type="email" name="email"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p>Password (again): <input type="password" name="repassword"></p>
+        <p>Name (optional): <input type="text" name="firstname"></p>
+        <p>Lastname (optional): <input type="text" id="lastname" name="lastname"></p>
+        <p>School (optional): <input type="text" id="school" name="school"></p>
+        <p>Promo (optional): <input type="text" id="promo" name="promo"></p>
+        <p>Tags (optional):<input type="text" name="tags" id="tags" data-role="tagsinput"></p>
+        <p>Date (optional):<input type="date" id="birthday" name="birthday"></p>
+        <p><input type="submit" value="Register"></p>
     </form>
 </template>
