@@ -1,13 +1,12 @@
 
 <template name="home">
       <h1 class="text-center first-title">ProjectTeam</h1>
-      <div class="login btn btn-primary">{{> loginButtons}}</div>
       <!-- si l'user est connecté on affiche sa liste -->
       {{#if currentUser}}
         {{> hello}}
         {{> liste}}
       {{else}}
-      Veuillez vous connectez
+        {{> welcome}}
       {{/if}}
 </template>
 
@@ -58,7 +57,7 @@
       <li role="presentation"><label>Description</label><input type="text" name="description" placeholder="Description" /></li>
       <li role="presentation"><label>Téléphone</label><input type="tel" name="tel" placeholder="TELEPHONE" /></li>
       <li role="presentation"><label>Personne(s) recherchée(s)</label><input type="text" name="personne" placeholder="ex : developpeur php" /></li>
-      <li role="presentation"><label>Mail</label><input type="email" name="mail" placeholder="MAIL" /></li>
+      <li role="presentation"><label>Mail</label><input type="email" name="mail" placeholder="MAIL" value={{currentUser.emails.[0].address}} /></li>
       <li role="presentation"><label>Tags</label><input type="text" id="tags" name="tags" placeholder="Tags" data-role="tagsinput"/></li>
       <li role="presentation"><input class="btn btn-success" type="submit" value="Submit"></li>
       </form>
@@ -153,7 +152,7 @@
     <li>Téléphone : <input  type="tel" name="tel" value="{{tel}}" /></li>
     <li>Personne(s) recherchée(s) : <input  type="text" name="personne" value="{{personne}}" /></li>
     <li>Mail : <input  type="email" name="mail" value="{{mail}}" /></li>
-    <li>Tags : <input  type="email" name="tags" value="{{tags}}" /></li>
+    <li>Tags : <input  type="text" id="tags_modif" name="tags" value="{{tags}}" data-role="tagsinput"/></li>
     <button class="btn btn-success mt-10" type="submit" value='Submit' >Valider</button>
   </form>
 

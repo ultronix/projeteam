@@ -50,6 +50,9 @@ Tasks.update(taskId, { $set: { checked: setChecked} });*/
   },  
   endup: function () {
     return  update = false;
+  },
+  addUser: function (email, password, name, lastname, school, promo, tags, date){
+      return
   }
 
 })
