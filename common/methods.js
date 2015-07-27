@@ -53,6 +53,31 @@ Tasks.update(taskId, { $set: { checked: setChecked} });*/
   },
   addUser: function (email, password, name, lastname, school, promo, tags, date){
       return
+  },
+
+
+
+
+  // postuler pour une annonce
+
+  postuler:  function (annonce_id) {
+    // vérifie si l'user est connecté
+    if (! Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+    Annonces.update(annonce_id, { 
+      $addToSet : 
+          {
+          postulants : Meteor.userId()
+          }
+      });
+ 
+    Meteor.users.update( { _id: Meteor.userId() }, { 
+      $addToSet : 
+          {
+          postule : annonce_id
+          }
+      });
   }
 
 })

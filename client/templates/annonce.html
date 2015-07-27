@@ -7,4 +7,12 @@
   <li>Mail : {{mail}}</li>
   <li>Tags : {{tags}}</li>
 </ul>
+
+{{#if postulees}}
+	Vous avez déjà postulé
+{{else}}
+	<button id="postuler">Postuler</button>
+{{/if}}
+
+
 </template>

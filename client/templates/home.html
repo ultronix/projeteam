@@ -73,22 +73,26 @@
   {{#if annonce}} <!-- si il a des annonces -->
   <div class="row list">
     {{#each annonce}}
-      {{>annonces}}
+      {{>annoncesPopUp}}
     {{/each}}
    </div>
   {{else}}
-  Vous n'avez pas de annonces
+  Vous n'avez pas d'annonces
   {{/if}}
 
 
 </template>
 
-<template name="annonces">
+<template name="annoncesPopUp">
 
 <div class="col-md-6">
       <a class="thisAnnonce" href="#" data-toggle="modal" data-target="#{{_id}}"> <!--  Envoie vers la pop -->
+
         <div>
           {{titre}}
+          {{#if postulants.length}}
+          ({{postulants.length}})
+          {{/if}}
         </div>
       </a>
       <button class="areUSure" data-toggle="modal" data-target="#myModal">&times;</button>
@@ -97,7 +101,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Voulez-vous vraiment supprimer ce annonce ?</h4>
+            <h4 class="modal-title" id="myModalLabel">Voulez-vous vraiment supprimer cette annonce ?</h4>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-success close delete" data-dismiss="modal"  aria-label="Close">Oui</button>
@@ -113,7 +117,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Info du annonce</h4>
+            <h4 class="modal-title" id="myModalLabel">Info de l'annonce</h4>
           </div>
           <div class="modal-body">
             <ul>
@@ -127,6 +131,15 @@
                 <li>Personne(s) recherchée(s) : {{personne}}</li>
                 <li>Mail : {{mail}}</li>
                 <li>Tags : {{tags}}</li>
+              
+              {{#if postulantsAnnonce}} <!-- S'il ya des postulants -->
+                <li>Ces personnes ont marqué leur intérêt :
+                  {{#each postulantsAnnonce}}
+                  <br>
+                  <a href="users/{{this._id}}">{{profile.firstname}}</a>
+                  {{/each}}
+                </li>
+              {{/if}}
                 <button class="btn btn-primary mt-10" id='update'>Modifier</button>  
               {{/if}}
               

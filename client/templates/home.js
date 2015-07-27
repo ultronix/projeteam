@@ -7,7 +7,7 @@
       // refresh après l'ajout d'un tag
       $('#tags_modif').tagsinput('refresh');
   }
-  Template.annonces.rendered=function(){
+  Template.annoncesPopUp.rendered=function(){
       // refresh après l'ajout d'un tag
       $('#tags_annonce').tagsinput('refresh');
   }
@@ -18,10 +18,13 @@
     }
   });
 
-  Template.annonces.helpers({
+  Template.annoncesPopUp.helpers({
     // si on est en mode update de Annonce
     update : function(){
        return Session.get('update');
+    },
+    postulantsAnnonce : function(){
+       return Meteor.users.find({postule : this._id});
     }
   });
 
@@ -43,10 +46,11 @@
     }
   });
 
- Template.annonces.events({
+ Template.annoncesPopUp.events({
     "click #update": function () {      
      Session.set('update', true);
     },
+
 
     "submit .modif": function (event) {
   
