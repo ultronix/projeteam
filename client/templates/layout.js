@@ -15,6 +15,11 @@ Template.layout.events({
         	$(".container").addClass("filter-deployed");      	
         };
     },
+    'click .container': function(event){
+        event.preventDefault();
+        $(".filter").removeClass("deploy-filter");
+        $(".container").removeClass("filter-deployed");
+    },
     'click .valid-filter': function(event){
     	if ($(".filter").hasClass("deploy-filter")) {
 
