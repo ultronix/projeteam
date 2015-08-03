@@ -1,5 +1,6 @@
 <head>
     <title>ProjectTeam</title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes" />
 </head>
 <body>
 </body>
@@ -30,9 +31,59 @@
                     {{/if}}
                 </ul>
             </div>
+            <a href="#" class="btn-filter">Cliquer ici pour la recherche et pour les (filtres ?) trucs</a>
         </div>
     </header>
-    <div class="container">
-        {{>yield}}
+    <div class="mega-container">
+        <div class="container">
+            {{>yield}}
+        </div>
+        <div class="filter text-center">
+            {{> esInput index="annonces" placeholder="Chercher un annonce" class="btn btn-default"}}
+
+            <div class="grp-filter">
+                <p class="one-filter">
+                   <input type="checkbox" id="filter1">
+                   <label for="filter1">WOW SUCH FILTER</label>
+                </p>
+                <p class="one-filter">
+                   <input type="checkbox" id="filter2">
+                   <label for="filter2">WOW SUCH FILTER</label>
+                </p>
+                <p class="one-filter">
+                   <input type="checkbox" id="filter3">
+                   <label for="filter3">WOW SUCH FILTER</label>
+                </p>
+                <p class="one-filter">
+                   <input type="checkbox" id="filter4">
+                   <label for="filter4">WOW SUCH FILTER</label>
+                </p>
+            </div>
+            <div class="grp-filter">
+                <p class="one-filter">
+                   <input type="checkbox" id="filter6">
+                   <label for="filter6">WOW SUCH FILTER 2</label>
+                </p>
+                <p class="one-filter">
+                   <input type="checkbox" id="filter7">
+                   <label for="filter7">WOW SUCH FILTER 2</label>
+                </p>
+            </div>
+            <div class="grp-filter">
+                <p class="one-filter">
+                   <input type="checkbox" id="filter8">
+                   <label for="filter8">WOW SUCH FILTER 3</label>
+                </p>
+                <p class="one-filter">
+                   <input type="checkbox" id="filter9">
+                   <label for="filter9">WOW SUCH FILTER 3</label>
+                </p>
+                <p class="one-filter">
+                   <input type="checkbox" id="filter10">
+                   <label for="filter10">WOW SUCH FILTER 3</label>
+                </p>                
+            </div>
+            <input class="btn btn-success valid-filter" type="submit" value="VALIDER">
+        </div>
     </div>
 </template>  

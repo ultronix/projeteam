@@ -1,10 +1,9 @@
 <template name="login">
-    <form>
-        <ul>
-        <li>Adresse mail :  <input type="email" name="email"></li>
-        <li>Mot de passe : <input type="password" name="password"></li>
-        <li><input type="submit" value="Login"></li>
-        <li>Mot de passe oublié ?</li>
-        </ul>
+	{{> header}}
+    <form class="login-form">
+        <input class="dat-input" type="email" name="email" placeholder="Adresse mail">
+        <input class="dat-input" type="password" name="password" placeholder="Mot de passe">
+        <input class="btn btn-danger" type="submit" value="Connexion">        
+        <a class="litle-link" href="/login">Mot de passe oublié ?</a>
     </form>
 </template>
