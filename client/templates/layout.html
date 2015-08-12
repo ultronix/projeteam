@@ -6,34 +6,33 @@
 </body>
 
 <template name="layout">
-    <header>
-        <div class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">ProjectTeam</a>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Projets</a></li>
-                    <li><a href="/create">Mes projets</a></li>
-                    <li><a href="/support">Recherche de Supports</a></li>
-                    <li><a href="/profil">Profil</a></li>
-                    {{#if currentUser}}
-                    <li><a href="#" class="logout">Logout</a></li>
-                    {{else}}
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/login">Login</a></li>
-                    {{/if}}
-                </ul>
-            </div>
-            <a href="#" class="btn-filter">Cliquer ici pour la recherche et pour les (filtres ?) trucs</a>
-        </div>
-    </header>
+
+  <input type="checkbox" id="op">
+  <div class="lower">
+    <label for="op">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </label>
+    <a href="#" class="btn-filter">Cliquer ici pour la recherche et pour les (filtres ?) trucs</a>
+  </div>
+  <div class="overlay overlay-hugeinc">
+        <label class="cross" for="op"></label>
+        <nav>
+          <ul>
+            <li><label for="op"><a class="itemMenu" href="/" for="op">Projets</a></label></li>
+            <li><label for="op"><a class="itemMenu" href="/create">Mes projets</a></label></li>
+            <li><label for="op"><a class="itemMenu" href="/support">Recherche de Supports</a></label></li>
+            <li><label for="op"><a class="itemMenu" href="/profil">Profil</a></label></li>
+            {{#if currentUser}}
+            <li><label for="op"><a href="#" class="itemMenu logout">Logout</a></label></li>
+            {{else}}
+            <li><label for="op"><a class="itemMenu" href="/register">Register</a></label></li>
+            <li><label for="op"><a class="itemMenu" href="/login">Login</a></label></li>
+            {{/if}}
+          </ul>
+        </nav>
+  </div>
     <div class="mega-container">
         <div class="container">
             {{>yield}}
