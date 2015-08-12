@@ -11,4 +11,8 @@ $( document ).ready(function() {
 	    }
 	});
 
+	$( ".navbar-toggle" ).click(function() {
+		console.log("coucou");
+	});
+
 });

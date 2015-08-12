@@ -25,5 +25,9 @@ Template.layout.events({
         	$(".filter").addClass("deploy-filter");  
         	$(".container").addClass("filter-deployed");      	
         };
+    },
+    'click .itemMenu': function(event){
+        console.log("coucou");
+        $("#op").removeAttr("checked");
     }
 });
