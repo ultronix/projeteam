@@ -38,11 +38,11 @@
 <template name="searchBox">
     <ul class="row">
      <!--  resultat research instant -->
-        {{#esEach index="annonces"}}
+        {{#esEach index="projets"}}
             <li class="col-md-6 col-xs-12 col-sm-12"><a class="thisAnnonce" href="annonce/{{_id}}" ><div>{{titre}}</div></a></li>
         {{/esEach}}
     </ul>
-      {{#ifEsHasNoResults index="annonces"}}
+      {{#ifEsHasNoResults index="projets"}}
         <div class="no-results">Aucun résultat</div>
     {{/ifEsHasNoResults}}
 </template>
