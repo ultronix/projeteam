@@ -16,5 +16,8 @@ Template.annonce.helpers({
 	  		]
 	  	}
 	  );
+	},
+	isInTable : function(id,table){
+		return table.indexOf(id)!=-1;
 	}
 });

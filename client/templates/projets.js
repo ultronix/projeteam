@@ -3,7 +3,7 @@
     return owner === Meteor.userId();
   },
     projets : function(){
-      // retourne que les annonces dont l'user est propriétaire
+      // retourne que les projets dont l'user n'est pas propriétaire
       return  Annonces.find({owner: {$nin: [Meteor.userId()]}});
     }
 

@@ -7,12 +7,17 @@
   <li>Mail : {{mail}}</li>
   <li>Tags : {{tags}}</li>
 </ul>
-
-{{#if postulees}}
-	Vous avez déjà postulé
-{{else}}
-	<button id="postuler">Postuler</button>
+{{#if isInTable currentUser._id membres}} <!-- si l'user est déjà membre -->
+	vous êtes membre du projet
+	{{else}}
+		{{#if postulees}}
+			Vous avez déjà postulé
+		{{else}}
+			{{#if isInTable currentUser._id supportDemande}} <!-- si l'user a déjà reçu une demande su creéateurx -->
+				Une demande a déjà été envoyé par le créateur du projet
+			{{else}}
+				<button id="postuler">Postuler</button>
+			{{/if}}	
+		{{/if}}
 {{/if}}
-
-
 </template>
