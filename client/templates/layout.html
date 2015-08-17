@@ -33,11 +33,7 @@
           </ul>
         </nav>
   </div>
-    <div class="mega-container">
-        <div class="container">
-            {{>yield}}
-        </div>
-        <div class="filter text-center">
+  <div class="filter text-center">
             {{> esInput index="annonces" placeholder="Chercher un annonce" class="btn btn-default"}}
 
             <div class="grp-filter">
@@ -84,5 +80,10 @@
             </div>
             <input class="btn btn-success valid-filter" type="submit" value="VALIDER">
         </div>
+    <div class="mega-container">
+        <div class="container">
+            {{>yield}}
+        </div>
+        
     </div>
 </template>  
