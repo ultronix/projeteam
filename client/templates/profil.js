@@ -11,7 +11,7 @@ Template.profil.events({
             'profile.lastname': event.target.lastname.value,
             'profile.school': event.target.school.value,
             'profile.promo': event.target.promo.value,
-            'profile.tags': event.target.tags.value,
+            'profile.tags': event.target.tags.value.split(","), 
             'profile.birthday': event.target.birthday.value
         }} );
     }

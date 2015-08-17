@@ -14,7 +14,7 @@ Template.register.events({
         var lastname = event.target.lastname.value;
         var school = event.target.school.value;
         var promo = event.target.promo.value;
-        var tags = event.target.tags.value;
+        var tags = event.target.tags.value.split(",");
         var birthday = event.target.birthday.value;
         if(repassword==password) {
             Accounts.createUser({

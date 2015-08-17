@@ -2,6 +2,21 @@
 <ul>
   <li>Nom : {{profile.lastname}}</li>
   <li>Prénom : {{profile.firstname}}</li>
-  <li>Mail : {{emails.address}}</li>
+  <li>Mail : {{emails.[0].address}}</li>
 </ul>
+{{#if myAnnonces}} <!-- si il a des annonces -->
+		<input type="text" id="userId" style="display:none;" value="{{_id}}">
+  <div class="row list">
+    {{#each myAnnonces}}
+    	{{titre}}
+    	{{#if isDemande userId supportDemande}}
+    		Demande déjà envoyé
+    	{{else}}
+    		<button id="demande">Demande</button>
+    	{{/if}}
+    {{/each}}
+   </div>
+  {{else}}
+  Vous n'avez pas d'annonces
+{{/if}}
 </template>

@@ -1,0 +1,27 @@
+<template name="projets">
+<h1>Recherche :</h1>	
+	<ul class="row">
+		<!--  resultat research instant -->
+		{{#esEach index="projets"}} 
+			<!--  Afficher que les projets des autres -->
+			{{#if isMyProject owner}}
+			{{else}}	
+			<li class="col-md-6 col-xs-12 col-sm-12"><a class="thisAnnonce" href="annonce/{{_id}}" ><div>{{titre}}</div></a></li>
+			{{/if}}
+		{{/esEach}}
+	</ul>
+	{{#ifEsHasNoResults index="projets"}}
+		<div class="no-results">Aucun résultat</div>
+	{{/ifEsHasNoResults}}
+<h1>Projets :</h1>
+	{{#if projets}} 
+	<!-- si il a des annonces -->
+	<div class="row list">
+		{{#each projets}}
+			<li class="col-md-6 col-xs-12 col-sm-12"><a class="thisAnnonce" href="annonce/{{_id}}" ><div>{{titre}}</div></a></li>
+		{{/each}}
+	</div>
+	{{else}}
+		Vous n'avez pas d'annonces
+	{{/if}}
+</template>

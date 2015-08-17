@@ -78,6 +78,42 @@ Tasks.update(taskId, { $set: { checked: setChecked} });*/
           postule : annonce_id
           }
       });
-  }
+  },
+  demande:  function (annonce_id, user_id) {
+    // vérifie si l'user est connecté
+    if (! Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+    Annonces.update(annonce_id, { 
+      $addToSet : 
+          {
+          supportDemande : user_id
+          }
+      });
+    Meteor.users.update( { _id: user_id }, { 
+      $addToSet : 
+          {
+          demandeSupport : annonce_id
+          }
+      });
+  },
 
+  valider:  function (annonce_id) {
+    // vérifie si l'user est connecté
+    if (! Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+    Annonces.update(annonce_id, { 
+      $addToSet : 
+          {
+          membres : Meteor.userId()
+          }
+      });
+    Meteor.users.update( { _id: Meteor.userId() }, { 
+      $addToSet : 
+          {
+          participations : annonce_id
+          }
+      });
+  }
 })

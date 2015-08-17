@@ -1,0 +1,14 @@
+<template name="demandes">
+{{#if projets }} 
+  <div class="row list">
+    {{#each projets}}
+    	{{#if isDemande _id currentUser.demandeSupport}} <!-- affiche les projets qui ont besoin de nos compétences -->
+    		<a class="thisAnnonce" href="annonce/{{_id}}" ><div>{{titre}}</div></a>
+ 			<button id="valider">Valider</button>
+ 		{{/if}}
+    {{/each}}
+   </div>
+{{else}}
+  Vous n'avez pas d'annonces
+{{/if}}	
+</template>

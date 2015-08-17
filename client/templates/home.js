@@ -60,7 +60,7 @@
     var tel = event.target.tel.value;
     var personne = event.target.personne.value;
     var mail = event.target.mail.value;
-    var tags = event.target.tags.value;
+    var tags = event.target.tags.value.split(",");
     var c_id = event.target.id;
     
     Meteor.call("modifAnnonces", c_id, titre, description, tel, personne, mail, tags);
@@ -79,7 +79,7 @@
     var tel = event.target.tel.value;
     var personne = event.target.personne.value;
     var mail = event.target.mail.value;
-    var tags = event.target.tags.value;
+    var tags = event.target.tags.value.split(",");
 
     // appelle la method addcontact (regarde plus bas)
     Meteor.call("addAnnonces", titre, description, tel, personne, mail, tags);

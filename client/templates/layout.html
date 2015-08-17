@@ -20,11 +20,12 @@
         <label class="cross" for="op"></label>
         <nav>
           <ul>
-            <li><label for="op"><a class="itemMenu" href="/" for="op">Projets</a></label></li>
-            <li><label for="op"><a class="itemMenu" href="/create">Mes projets</a></label></li>
-            <li><label for="op"><a class="itemMenu" href="/support">Recherche de Supports</a></label></li>
+            <li><label for="op"><a class="itemMenu" href="/projets">Projets</a></label></li>
+            <li><label for="op"><a class="itemMenu" href="/">Mes projets</a></label></li>
+            <li><label for="op"><a class="itemMenu" href="/supports">Recherche de Supports</a></label></li>
             <li><label for="op"><a class="itemMenu" href="/profil">Profil</a></label></li>
             {{#if currentUser}}
+            <li><label for="op"><a class="itemMenu" href="/demandes">Demandes</a></label></li>
             <li><label for="op"><a href="#" class="itemMenu logout">Logout</a></label></li>
             {{else}}
             <li><label for="op"><a class="itemMenu" href="/register">Register</a></label></li>
@@ -33,8 +34,12 @@
           </ul>
         </nav>
   </div>
-  <div class="filter text-center">
-            {{> esInput index="annonces" placeholder="Chercher un annonce" class="btn btn-default"}}
+    <div class="mega-container">
+        <div class="container">
+            {{>yield}}
+        </div>
+        <div class="filter text-center">
+            {{> esInput index="projets" placeholder="Chercher un annonce" class="btn btn-default"}}
 
             <div class="grp-filter">
                 <p class="one-filter">
