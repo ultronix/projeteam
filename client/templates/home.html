@@ -137,18 +137,35 @@
                 <li>Personne(s) recherchée(s) : {{personne}}</li>
                 <li>Mail : {{mail}}</li>
                 <li>Tags : {{tags}}</li>
-              
+                <input type="text" id="annonceId" style="display:none;" value="{{this._id}}">
               {{#if postulantsAnnonce}} <!-- S'il ya des postulants -->
                 <li>Ces personnes ont marqué leur intérêt :
                   {{#each postulantsAnnonce}}
                   <br>
                   <a href="users/{{this._id}}">{{profile.firstname}}</a>
+                  <button id="validerPostuler">Valider</button>
                   {{/each}}
                 </li>
+              {{/if}}  
+              {{#if valideDemande}} <!-- S'il ya des demandes validées -->                
+                <li>Ces personnes ont valider la demande :
+                  {{#each valideDemande}}
+                    <br>
+                    <a href="users/{{this.id}}">{{profile.firstname}}</a>
+                    <button id="finaliser">Valider</button>
+                  {{/each}}
+                </li>                
               {{/if}}
+              {{#if membres}} <!-- S'il ya des membres -->                
+                <li>Membres du projet :
+                  {{#each membres}}
+                    <br>
+                    <a href="users/{{this.id}}">{{profile.firstname}}</a>
+                  {{/each}}
+                </li>                
+              {{/if}}             
                 <button class="btn btn-primary mt-10" id='update'>Modifier</button>  
               {{/if}}
-              
             </ul>
            
 
@@ -176,4 +193,7 @@
   </form>
 
 </template>
-
+<template name="userValide">
+  <a href="users/{{this}}">{{users}}</a>
+  <button id="ajouter">Valider</button>
+</template>

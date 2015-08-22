@@ -14,5 +14,28 @@ Template.profil.events({
             'profile.tags': event.target.tags.value.split(","), 
             'profile.birthday': event.target.birthday.value
         }} );
+    },
+    "change .myFileInput": function(event, template){
+      FS.Utility.eachFile(event, function(file) {
+        Images.insert(file, function (err, fileObj) {
+          if (err){
+             // handle error
+          } else {
+            // handle success depending what you need to do
+                Images.remove(Meteor.user().profile.imageId);
+            var userId = Meteor.userId();
+            var imagesURL = "/upload/img/places/" + fileObj.collectionName+ "-" + fileObj._id + "-" + fileObj.original.name;
+            Meteor.users.update(userId, {$set: {
+                "profile.imageURL": imagesURL,
+                "profile.imageId" : fileObj._id
+            }});
+          }
+        });
+     })    
     }
+});
+Template.profil.helpers({
+  images: function () {
+    return Images.find(); // Where Images is an FS.Collection instance
+  }
 });

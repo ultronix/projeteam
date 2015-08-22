@@ -14,9 +14,13 @@
 			Vous avez déjà postulé
 		{{else}}
 			{{#if isInTable currentUser._id supportDemande}} <!-- si l'user a déjà reçu une demande su creéateurx -->
-				Une demande a déjà été envoyé par le créateur du projet
+				Une demande a déjà été envoyé par le créateur du projet.
 			{{else}}
+				{{#if isInTable currentUser._id supportValides}}
+					La demande a déjà été validée, en attente de la réponse du créateur.
+				{{else}}	
 				<button id="postuler">Postuler</button>
+				{{/if}}	
 			{{/if}}	
 		{{/if}}
 {{/if}}

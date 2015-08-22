@@ -1,42 +1,88 @@
 Template.register.rendered=function(){
     // refresh après l'ajout d'un tag
     $('#tags').tagsinput('refresh');
-}
-
-Template.register.events({
-    'submit form': function(event){
+    $('.register').validate({
+    submitHandler: function(form){
         $('#errorList').html('');
-        event.preventDefault();
-        var email = event.target.email.value;
-        var password = event.target.password.value;
-        var repassword = event.target.repassword.value;
-        var firstname = event.target.firstname.value;
-        var lastname = event.target.lastname.value;
-        var school = event.target.school.value;
-        var promo = event.target.promo.value;
-        var tags = event.target.tags.value.split(",");
-        var birthday = event.target.birthday.value;
-        if(repassword==password) {
-            Accounts.createUser({
-                email: email,
-                password: password,
-                profile: {
-                    firstname: firstname,
-                    lastname: lastname,
-                    school: school,
-                    promo: promo,
-                    tags: tags,
-                    birthday: birthday
-                }
-            }, function (error) {
-                if (error) {
-                    $('#errorList').append("<li>"+error.reason+"</li>");
-                }
-                else
-                    Router.go('home');
-            });
-        }
-        else
-            $('#errorList').append("<li>mot de passe différent</li>");
+        var email = $('[name=email]').val();
+        var password = $('[name=password]').val();
+        var firstname = $('[name=firstname]').val();
+        var lastname = $('[name=lastname]').val();
+        var school = $('[name=school]').val();
+        var promo = $('[name=promo]').val();
+        var tags = $('[name=tags]').val().split(",");
+        var birthday = $('[name=birthday]').val();
+        var imageURL = Session.get('imageURL');
+        var imageId = Session.get('imageId')
+        Accounts.createUser({
+            email: email,
+            password: password,
+            profile: {
+                firstname: firstname,
+                lastname: lastname,
+                school: school,
+                promo: promo,
+                tags: tags,
+                birthday: birthday,
+                imageURL : imageURL,
+                imageId : imageId
+            }
+        }, 
+        function (error){
+            if (error) {
+                Images.remove(imageId);
+                $('#errorList').append("<li>Le mail existe déjà</li>");
+            }
+            else
+                delete Session.keys['imageURL'];
+                delete Session.keys['imageId'];
+                delete Session.keys['emailRegister'];
+                delete Session.keys['firstnameRegister'];
+                delete Session.keys['lastNameRegister'];
+                delete Session.keys['schoolRegister'];
+                delete Session.keys['promoRegister'];
+                delete Session.keys['tagsRegister'];
+                delete Session.keys['birthdayRegister'];
+                Router.go('home');
+        });
     }
 });
+}
+Template.register.events({
+    'submit form': function(event){
+        event.preventDefault();
+    },
+    "change .myFileInput": function(event, template){
+      FS.Utility.eachFile(event, function(file) {
+        Images.insert(file, function (err, fileObj) {
+          if (err){
+             // handle error
+          } else {
+            Images.remove(Session.get('imageId'));
+            // handle success depending what you need to do
+            var userId = Meteor.userId();
+            var imagesURL = "/upload/img/places/" + fileObj.collectionName+ "-" + fileObj._id + "-" + fileObj.original.name;
+            Session.set('imageURL', imagesURL);
+            Session.set('imageId', fileObj._id);
+            Session.set('emailRegister', $('[name=email]').val());
+            Session.set('firstnameRegister', $('[name=firstname]').val());
+            Session.set('lastNameRegister', $('[name=lastname]').val());
+            Session.set('schoolRegister', $('[name=school]').val());
+            Session.set('promoRegister', $('[name=promo]').val());
+            Session.set('tagsRegister', $('[name=tags]').val());
+            Session.set('birthdayRegister', $('[name=birthday]').val());
+          }
+        });
+     })    
+    }
+});
+Template.register.helpers({
+  imageURL: function (){return Session.get("imageURL");},
+  email: function (){return Session.get("emailRegister");},
+  firstname: function (){return Session.get("firstnameRegister");},
+  lastname: function (){return Session.get("lastNameRegister");},
+  school: function (){return Session.get("schoolRegister");},       
+  promo: function (){return Session.get("promoRegister");},
+  tags: function (){return Session.get("tagsRegister");},
+  birthday: function (){return Session.get("birthdayRegister");}
+ }) 

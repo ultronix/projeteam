@@ -2,6 +2,7 @@ Template.layout.events({
     'click .logout': function(event){
         event.preventDefault();
         Meteor.logout();
+        Router.go("home");
     },
     'click .btn-filter': function(event){
         event.preventDefault();

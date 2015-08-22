@@ -1,13 +1,20 @@
 <template name="profil">
     {{#if currentUser}}
         <form class="updater">
+            <div class="avatar avatar-large avatar-circle">
+                <img class="avatar-image" src={{currentUser.profile.imageURL}} alt="avatar" onerror="this.style.display='none';" width="310" height="310">
+                <span class="avatar-initials">A</span>
+            </div>
+      <div>
+      </div>
             <p>Email:{{currentUser.emails.[0].address}}</p>
-            <p>FirstName (optional): <input type="text" name="firstname" value={{currentUser.profile.firstname}}></p>
-            <p>Lastname (optional): <input type="text" id="lastname" name="lastname" value={{currentUser.profile.lastname}}></p>
+            <p>FirstName: <input type="text" name="firstname" value={{currentUser.profile.firstname}}></p>
+            <p>Lastname: <input type="text" id="lastname" name="lastname" value={{currentUser.profile.lastname}}></p>
             <p>School (optional): <input type="text" id="school" name="school" value={{currentUser.profile.school}}></p>
             <p>Promo (optional): <input type="text" id="promo" name="promo" value={{currentUser.profile.promo}}></p>
             <p>Tags (optional):<input type="text" name="tags" id="tags" data-role="tagsinput" value={{currentUser.profile.tags}}></p>
             <p>Date (optional):<input type="date" id="birthday" name="birthday" value={{currentUser.profile.birthday}}></p>
+            <input type="file" name="iamge" class="myFileInput">
             <p><input type="submit" value="Modifier"></p>
         </form>
     {{else}}

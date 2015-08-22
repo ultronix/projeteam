@@ -9,10 +9,18 @@
   <div class="row list">
     {{#each myAnnonces}}
     	{{titre}}
-    	{{#if isDemande userId supportDemande}}
+    	{{#if isDemande userId supportDemande}} <!-- si la demande est déjà envoyé -->
     		Demande déjà envoyé
     	{{else}}
-    		<button id="demande">Demande</button>
+        {{#if isDemande userId supportValide}}<!-- si il a la demande a été validé -->
+          <button id="valider">Valider</button>
+          {{else}}
+            {{#if isDemande userId membres}} <!-- si la personne est déjà membre -->
+              l'utilisateur est membre du projet
+            {{else}}
+    		      <button id="demande">Demande</button>
+            {{/if}} 
+        {{/if}}
     	{{/if}}
     {{/each}}
    </div>

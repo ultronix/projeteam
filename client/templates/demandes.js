@@ -14,7 +14,7 @@
 
 Template.demandes.events({
     "click #valider": function () {      
-      Meteor.call("valider", this._id);
+      Meteor.call("validerDemande", this._id);
     }
   });
   

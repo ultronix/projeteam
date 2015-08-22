@@ -4,16 +4,21 @@
         <ul id="errorList">
         </ul>
     </div>
-    <form class="register">
-        <input class="dat-input" type="email" name="email" placeholder="Adresse mail">
-        <input class="dat-input" type="password" name="password" placeholder="Mot de passe">
-        <input class="dat-input" type="password" name="repassword" placeholder="Comfirmer votre mot de passe">
-        <input class="dat-input" type="text" name="firstname" placeholder="Prénom">
-        <input class="dat-input" type="text" id="lastname" name="lastname" placeholder="Nom">
-        <input class="dat-input" type="text" id="school" name="school" placeholder="Ecole">
-        <input class="dat-input" type="text" id="promo" name="promo" placeholder="Promo">
-        <input class="dat-input" type="date" id="birthday" name="birthday" placeholder="Date de naissance">
-        <input class="dat-input" type="text" name="tags" id="tags" data-role="tagsinput" placeholder="Tags">
+    <form class="register" method="post">
+        <div class="avatar avatar-large avatar-circle">
+            <img class="avatar-image" src={{imageURL}} alt="avatar" onerror="this.style.display='none';" width="310" height="310">
+            <span class="avatar-initials">A</span>
+        </div>
+        <input class="dat-input myFileInput" type="file" name="image">
+        <input class="dat-input email" type="email" name="email" placeholder="Adresse mail" value={{email}} required>
+        <input class="dat-input password" type="password" id="password" name="password" placeholder="Mot de passe" required>
+        <input class="dat-input" type="password" id="repassword" name="repassword" placeholder="Confirmer votre mot de passe">
+        <input class="dat-input required" type="text" id="firstname" name="firstname" value={{firstname}} placeholder="Prénom">
+        <input class="dat-input required" type="text" id="lastname" name="lastname" value={{lastname}} placeholder="Nom">
+        <input class="dat-input" type="text" id="school" name="school" value={{school}} placeholder="Ecole">
+        <input class="dat-input" type="text" id="promo" name="promo" value={{promo}} placeholder="Promo">
+        <input class="dat-input" type="date" id="birthday" name="birthday" value={{birthday}} placeholder="Date de naissance">
+        <input class="dat-input" type="text" name="tags" id="tags" data-role="tagsinput" value={{tags}} placeholder="Tags">
         <input class="btn btn-danger" type="submit" value="S'inscrire">
     </form>
 </template>
