@@ -2,11 +2,9 @@
     {{#if currentUser}}
         <form class="updater">
             <div class="avatar avatar-large avatar-circle">
-                <img class="avatar-image" src={{currentUser.profile.imageURL}} alt="avatar" onerror="this.style.display='none';" width="310" height="310">
+                <img class="avatar-image" src={{currentUser.profile.imageURL}} alt="" onerror="this.style.display='none';" width="310" height="310">
                 <span class="avatar-initials">A</span>
             </div>
-      <div>
-      </div>
             <p>Email:{{currentUser.emails.[0].address}}</p>
             <p>FirstName: <input type="text" name="firstname" value={{currentUser.profile.firstname}}></p>
             <p>Lastname: <input type="text" id="lastname" name="lastname" value={{currentUser.profile.lastname}}></p>

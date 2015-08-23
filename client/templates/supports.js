@@ -1,4 +1,4 @@
-  Template.supports.helpers({
+ Template.supports.helpers({
   isMyId: function (id) {
     return id === Meteor.userId();
   },
@@ -8,5 +8,3 @@
     }
 
  })  
-
-  

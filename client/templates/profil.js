@@ -1,18 +1,26 @@
 
 Template.profil.rendered=function() {
     $('#tags').tagsinput('refresh');
+    if(Session.get('imageURL')){
+      $('.avatar-image').attr('src',imagesURL);
+    }
 }
 
 Template.profil.events({
     "submit form": function(event){
         event.preventDefault();
+        if(Session.get('imageURL')){
+        Images.remove(Meteor.user().profile.imageId);
+        }
         Meteor.users.update( { _id: Meteor.userId() }, { $set: {
             'profile.firstname': event.target.firstname.value,
             'profile.lastname': event.target.lastname.value,
             'profile.school': event.target.school.value,
             'profile.promo': event.target.promo.value,
             'profile.tags': event.target.tags.value.split(","), 
-            'profile.birthday': event.target.birthday.value
+            'profile.birthday': event.target.birthday.value,
+            'profile.imageURL': Session.get('imageURL'),
+            'profile.imageId' : Session.get('imageId')
         }} );
     },
     "change .myFileInput": function(event, template){
@@ -22,13 +30,11 @@ Template.profil.events({
              // handle error
           } else {
             // handle success depending what you need to do
-                Images.remove(Meteor.user().profile.imageId);
             var userId = Meteor.userId();
             var imagesURL = "/upload/img/places/" + fileObj.collectionName+ "-" + fileObj._id + "-" + fileObj.original.name;
-            Meteor.users.update(userId, {$set: {
-                "profile.imageURL": imagesURL,
-                "profile.imageId" : fileObj._id
-            }});
+            Session.set('imageURL', imagesURL);
+            Session.set('imageId', fileObj._id);
+            
           }
         });
      })    
