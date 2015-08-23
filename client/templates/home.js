@@ -17,9 +17,6 @@
       return  Annonces.find({owner: Meteor.userId()});
     }
   });
-  Template.annoncesPopUp.rendered= function(){
-    Session.set("annonceId", $('#annonceId').val());
-  };
   Template.annoncesPopUp.helpers({
     // si on est en mode update de Annonce
     update : function(){
@@ -59,15 +56,6 @@
     "click #update": function () {      
      Session.set('update', true);
     },
-    "click #validerPostuler": function (event, template) {
-     var annonceId = template.find('#annonceId').value;      
-     Meteor.call("validerPostuler", annonceId, this._id );
-    },
-    "click #finaliser": function (event, template) {
-     var annonceId = template.find('#annonceId').value;      
-     Meteor.call("finalisationDemandeSupport", annonceId, this._id );
-    },    
-
     "submit .modif": function (event) {
   
 

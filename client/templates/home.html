@@ -140,13 +140,11 @@
                 <li>Personne(s) recherchée(s) : {{personne}}</li>
                 <li>Mail : {{mail}}</li>
                 <li>Tags : {{tags}}</li>
-                <input type="text" id="annonceId" style="display:none;" value="{{this._id}}">
               {{#if postulantsAnnonce}} <!-- S'il ya des postulants -->
                 <li>Ces personnes ont marqué leur intérêt :
                   {{#each postulantsAnnonce}}
                   <br>
-                  <a href="users/{{this._id}}">{{profile.firstname}}</a>
-                  <button id="validerPostuler">Valider</button>
+                  <a href="users/{{_id}}">{{profile.firstname}}</a>
                   {{/each}}
                 </li>
               {{/if}}  
@@ -154,8 +152,7 @@
                 <li>Ces personnes ont valider la demande :
                   {{#each valideDemande}}
                     <br>
-                    <a href="users/{{this.id}}">{{profile.firstname}}</a>
-                    <button id="finaliser">Valider</button>
+                    <a href="users/{{_id}}">{{profile.firstname}}</a>
                   {{/each}}
                 </li>                
               {{/if}}
@@ -163,7 +160,7 @@
                 <li>Membres du projet :
                   {{#each membres}}
                     <br>
-                    <a href="users/{{this.id}}">{{profile.firstname}}</a>
+                    <a href="users/{{_id}}">{{profile.firstname}}</a>
                   {{/each}}
                 </li>                
               {{/if}}             

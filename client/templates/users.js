@@ -20,5 +20,9 @@ Template.users.events({
   "click #valider": function (event, template) {
      var userId = template.find('#userId').value;      
      Meteor.call("finalisationDemandeSupport", this._id, userId );
-    },    
+    },
+  "click #validerPostuler": function (event, template) {
+     var userId = template.find('#userId').value;     
+     Meteor.call("validerPostuler", this._id, userId );
+    }   
 })

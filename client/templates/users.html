@@ -12,13 +12,17 @@
     	{{#if isDemande userId supportDemande}} <!-- si la demande est déjà envoyé -->
     		Demande déjà envoyé
     	{{else}}
-        {{#if isDemande userId supportValide}}<!-- si il a la demande a été validé -->
-          <button id="valider">Valider</button>
+        {{#if isDemande userId supportValide}}<!-- si la demande a été validé -->
+          <button id="valider">Finaliser</button>
           {{else}}
             {{#if isDemande userId membres}} <!-- si la personne est déjà membre -->
               l'utilisateur est membre du projet
             {{else}}
-    		      <button id="demande">Demande</button>
+              {{#if isDemande userId postulants}}
+                <button id="validerPostuler">Valider </button>
+              {{else}}
+    		          <button id="demande">Demande</button>
+              {{/if}}
             {{/if}} 
         {{/if}}
     	{{/if}}
