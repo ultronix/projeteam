@@ -1,28 +1,30 @@
 <template name="profil">
-    {{#if currentUser}}
-        <form class="updater">
-            
-            <label>Email:{{currentUser.emails.[0].address}}</label>
-            <label>FirstName:</label>
-            <input class="dat-input" type="text" name="firstname" value={{currentUser.profile.firstname}}>
-            <label>Lastname: </label>
-            <input class="dat-input" type="text" id="lastname" name="lastname" value={{currentUser.profile.lastname}}>
-            <label>School (optional): </label>
-            <input class="dat-input" type="text" id="school" name="school" value={{currentUser.profile.school}}>
-            <label>Promo (optional): </label>
-            <input class="dat-input" type="text" id="promo" name="promo" value={{currentUser.profile.promo}}>
-            <label>Tags (optional):</label>
-            <input class="dat-input" type="text" name="tags" id="tags" data-role="tagsinput" value={{currentUser.profile.tags}}>
-            <label>Date (optional):</label>
-            <input class="dat-input" type="date" id="birthday" name="birthday" value={{currentUser.profile.birthday}}>
-            <div class="avatar avatar-large avatar-circle">
-                <img class="avatar-image" src={{currentUser.profile.imageURL}} alt="" onerror="this.style.display='none';" width="310" height="310">
-                <span class="avatar-initials">A</span>
-            </div>
-            <input type="file" name="iamge" class="myFileInput">
-            <input class="btn btn-danger" type="submit" value="Modifier">
-        </form>
-    {{else}}
-            <p>Veuillez vous authentifier</p>
-    {{/if}}
+    <div class="container">
+        {{#if currentUser}}
+            <form class="updater">
+                
+                <label>Email:{{currentUser.emails.[0].address}}</label>
+                <label>FirstName:</label>
+                <input class="dat-input" type="text" name="firstname" value={{currentUser.profile.firstname}}>
+                <label>Lastname: </label>
+                <input class="dat-input" type="text" id="lastname" name="lastname" value={{currentUser.profile.lastname}}>
+                <label>School (optional): </label>
+                <input class="dat-input" type="text" id="school" name="school" value={{currentUser.profile.school}}>
+                <label>Promo (optional): </label>
+                <input class="dat-input" type="text" id="promo" name="promo" value={{currentUser.profile.promo}}>
+                <label>Tags (optional):</label>
+                <input class="dat-input" type="text" name="tags" id="tags" data-role="tagsinput" value={{currentUser.profile.tags}}>
+                <label>Date (optional):</label>
+                <input class="dat-input" type="date" id="birthday" name="birthday" value={{currentUser.profile.birthday}}>
+                <div class="avatar avatar-large avatar-circle">
+                    <img class="avatar-image" src={{currentUser.profile.imageURL}} alt="" onerror="this.style.display='none';" width="310" height="310">
+                    <span class="avatar-initials">A</span>
+                </div>
+                <input type="file" name="iamge" class="myFileInput">
+                <input class="btn btn-danger" type="submit" value="Modifier">
+            </form>
+        {{else}}
+                <p>Veuillez vous authentifier</p>
+        {{/if}}
+    </div>
 </template>

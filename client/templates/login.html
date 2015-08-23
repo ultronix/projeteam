@@ -1,9 +1,11 @@
 <template name="login">
-	{{> header}}
-    <form class="login-form">
-        <input class="dat-input" type="email" name="email" placeholder="Adresse mail">
-        <input class="dat-input" type="password" name="password" placeholder="Mot de passe">
-        <input class="btn btn-danger" type="submit" value="Connexion">        
-        <a class="litle-link" href="/login">Mot de passe oublié ?</a>
-    </form>
+	<div class="container">
+		{{> header}}
+	    <form class="login-form">
+	        <input class="dat-input" type="email" name="email" placeholder="Adresse mail">
+	        <input class="dat-input" type="password" name="password" placeholder="Mot de passe">
+	        <input class="btn btn-danger" type="submit" value="Connexion">        
+	        <a class="litle-link" href="/login">Mot de passe oublié ?</a>
+	    </form>
+	</div>
 </template>
