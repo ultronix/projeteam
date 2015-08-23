@@ -14,17 +14,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </label>
-    <a href="#" class="btn-filter">Cliquer ici pour la recherche et pour les (filtres ?) trucs</a>
+    <!-- <a href="#" class="btn-filter">Cliquer ici pour la recherche et pour les (filtres ?) trucs</a> -->
   </div>
   <div class="overlay overlay-hugeinc">
         <label class="cross" for="op"></label>
         <nav>
           <ul>
+            {{#if currentUser}}
             <li><label for="op"><a class="itemMenu" href="/projets">Projets</a></label></li>
             <li><label for="op"><a class="itemMenu" href="/">Mes projets</a></label></li>
             <li><label for="op"><a class="itemMenu" href="/supports">Recherche de Supports</a></label></li>
             <li><label for="op"><a class="itemMenu" href="/profil">Profil</a></label></li>
-            {{#if currentUser}}
             <li><label for="op"><a class="itemMenu" href="/demandes">Demandes</a></label></li>
             <li><label for="op"><a href="#" class="itemMenu logout">Logout</a></label></li>
             {{else}}
