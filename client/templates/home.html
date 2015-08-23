@@ -1,15 +1,17 @@
 
 <template name="home">
-  <div class="big-header">
-    {{> header}}
+  <div class="container2">  
+    <!-- si l'user est connecté on affiche sa liste -->
+    {{#if currentUser}}
+      {{> hello}}
+      {{> liste}}
+    {{else}}
+    <div class="big-header">
+      {{> header}}
+    </div>
+      {{> welcome}}
+    {{/if}}
   </div>
-      <!-- si l'user est connecté on affiche sa liste -->
-      {{#if currentUser}}
-        {{> hello}}
-        {{> liste}}
-      {{else}}
-        {{> welcome}}
-      {{/if}}
 </template>
 
 
@@ -22,15 +24,14 @@
 </template>
 
 
-<template name="hello">
-   {{> searchBox}}
-  <div class="row">
-    <div class="col-md-11 title">
-      <h1>Mes projets</h1>
-      {{> ajout}}
-      <hr>
-    </div>
-  </div>
+<template name="hello">      
+    <div class="row">
+      <div class="col-md-11 title">
+        <h1 class="title">Mes projets</h1>
+        <hr>
+      </div>
+    </div>  
+    {{> ajout}}
 </template>
 
 
@@ -50,22 +51,24 @@
   <!-- ajout d'un annonce -->
 <template name="ajout">
 
-  <div class="dropdown pull-right">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-      Ajouter une annonce
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-      <form class="new-annonce">
-      <li role="presentation"><label>Titre</label><input required type="text" name="titre" placeholder="Titre" data-role="tagsinput"/></li>
-      <li role="presentation"><label>Description</label><input type="text" name="description" placeholder="Description" /></li>
-      <li role="presentation"><label>Téléphone</label><input type="tel" name="tel" placeholder="TELEPHONE" /></li>
-      <li role="presentation"><label>Personne(s) recherchée(s)</label><input type="text" name="personne" placeholder="ex : developpeur php" /></li>
-      <li role="presentation"><label>Mail</label><input type="email" name="mail" placeholder="MAIL" value={{currentUser.emails.[0].address}} /></li>
-      <li role="presentation"><label>Tags</label><input type="text" id="tags" name="tags" placeholder="Tags" data-role="tagsinput"/></li>
-      <li role="presentation"><input class="btn btn-success" type="submit" value="Submit"></li>
-      </form>
-    </ul>
+  <a class="btn btn-danger btn-addProject" href="#" data-toggle="modal" data-target="#modalAdd">Ajouter un projet</a>
+
+  <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <form class="new-annonce">
+              <input class="dat-input" required type="text" name="titre" placeholder="Titre" data-role="tagsinput"/>
+              <input class="dat-input" type="text" name="description" placeholder="Description" />
+              <input class="dat-input" type="tel" name="tel" placeholder="TELEPHONE" />
+              <input class="dat-input" type="text" name="personne" placeholder="ex : developpeur php" />
+              <input class="dat-input" type="email" name="mail" placeholder="MAIL" value={{currentUser.emails.[0].address}} />
+              <input class="dat-input" type="text" id="tags" name="tags" placeholder="Tags" data-role="tagsinput"/>
+              <input class="btn btn-danger" type="submit" value="Submit"  data-dismiss="modal" aria-label="Close">
+            </form>
+        </div>
+      </div>
+    </div>
   </div>
 
 </template>
