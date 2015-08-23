@@ -106,6 +106,8 @@
     event.target.personne.value = "";
     event.target.mail.value = "";
     event.target.tags.value = "";
+
+    $('#modalAdd').modal('hide');
   
     return false;
   }
