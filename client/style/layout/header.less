@@ -158,8 +158,26 @@
     -webkit-transform: translateY(25%) rotateX(-35deg);
     transform: translateY(25%) rotateX(-35deg);
 }
+.avatar-menu {
+    opacity: 0.4;
+    position: absolute;
+    left: 50%;
+    margin-left: -40px;
+    top: -50px;
+}
+#op:not(:checked)~.overlay-hugeinc .avatar-menu {
+    top: -50px;
+    opacity: 0.4;
+    -webkit-transition: top 0.5s, opacity 0.5s;
+    transition: top 0.5s, opacity 0.5s;
+}
 
-
+#op:checked~.overlay-hugeinc .avatar-menu {
+    opacity: 1;
+    top: 10px;    
+    -webkit-transition: top 0.5s, opacity 0.5s;
+    transition: top 0.5s, opacity 0.5s;
+}
 
 
 .header {
