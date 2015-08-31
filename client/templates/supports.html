@@ -1,19 +1,22 @@
 <template name="supports">
-	Recherche par prenom ou tags (exemple pour les tags : php, mysql): {{> esInput index="supports" placeholder="Chercher un annonce" class="btn btn-default"}}
-<h1>Recherche :</h1>	
-	<ul class="row">
-		<!--  resultat research instant -->
-		{{#esEach index="supports"}} 
-			<!--  Afficher que les projets des autres -->
-			{{#if isMyId _id}}
-			{{else}}	
-				<a class="thisAnnonce" href="users/{{_id}}" >{{profile.firstname}}</a>
-			{{/if}}
-		{{/esEach}}
-	</ul>
-	{{#ifEsHasNoResults index="supports"}}
-		<div class="no-results">Aucun résultat</div>
-	{{/ifEsHasNoResults}}
+	<div class="container2">
+		<h1 class="title">Recherche de supports</h1>
+		{{> esInput index="supports" placeholder="Chercher par prenom ou par tags" class="dat-search"}}
+		
+		<ul class="row">
+			<!--  resultat research instant -->
+			{{#esEach index="supports"}} 
+				<!--  Afficher que les projets des autres -->
+				{{#if isMyId _id}}
+				{{else}}	
+					<a class="thisAnnonce" href="users/{{_id}}" >{{profile.firstname}}</a>
+				{{/if}}
+			{{/esEach}}
+		</ul>
+		{{#ifEsHasNoResults index="supports"}}
+			<div class="no-results">Aucun résultat</div>
+		{{/ifEsHasNoResults}}
+	</div>
 </template> 
 
 
