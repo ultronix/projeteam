@@ -26,13 +26,11 @@
 </template>
 
 
-<template name="hello">      
-    <div class="row">
-      <div class="col-md-11 title">
-        <h1 class="title">Mes projets</h1>
-        <hr>
-      </div>
-    </div>  
+<template name="hello">  
+    <div class="title">
+      <h1 class="title">Mes projets</h1>
+      <hr>
+    </div>
     {{> ajout}}
 </template>
 
@@ -60,12 +58,12 @@
       <div class="modal-content">
         <div class="modal-body">
             <form class="new-annonce">
-              <input class="dat-input" required type="text" name="titre" placeholder="Titre" data-role="tagsinput"/>
-              <input class="dat-input" type="text" name="description" placeholder="Description" />
-              <input class="dat-input" type="tel" name="tel" placeholder="TELEPHONE" />
-              <input class="dat-input" type="text" name="personne" placeholder="ex : developpeur php" />
-              <input class="dat-input" type="email" name="mail" placeholder="MAIL" value={{currentUser.emails.[0].address}} />
-              <input class="dat-input" type="text" id="tags" name="tags" placeholder="Tags" data-role="tagsinput"/>
+              <input class="dat-input2" required type="text" name="titre" placeholder="Titre" data-role="tagsinput"/>
+              <input class="dat-input2" type="text" name="description" placeholder="Description" />
+              <input class="dat-input2" type="tel" name="tel" placeholder="TELEPHONE" />
+              <input class="dat-input2" type="text" name="personne" placeholder="ex : developpeur php" />
+              <input class="dat-input2" type="email" name="mail" placeholder="MAIL" value={{currentUser.emails.[0].address}} />
+              <input class="dat-input2" type="text" id="tags" name="tags" placeholder="Tags" data-role="tagsinput"/>
               <input class="btn btn-danger" type="submit" value="Submit">
             </form>
         </div>

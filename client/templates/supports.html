@@ -16,7 +16,11 @@
 				        </div>
 				        <div class="content-support">
 							<p class="name-support">{{profile.firstname}} {{profile.lastname}}</p>
-							<p class="tag-support">{{profile.tags}}</p>
+							<p class="tag-support">
+								{{#each profile.tags}}
+							        {{ this }}
+						      	{{/each}}
+					      	</p>
 				        </div>
 				        <hr>
 					</a>
