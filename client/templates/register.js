@@ -61,7 +61,7 @@ Template.register.events({
             Images.remove(Session.get('imageId'));
             // handle success depending what you need to do
             var userId = Meteor.userId();
-            var imagesURL = "/upload/img/places/" + fileObj.collectionName+ "-" + fileObj._id + "-" + fileObj.original.name;
+            var imagesURL = "/uploads/img/places/" + fileObj.collectionName+ "-" + fileObj._id + "-" + fileObj.original.name;
             Session.set('imageURL', imagesURL);
             Session.set('imageId', fileObj._id);
             Session.set('emailRegister', $('[name=email]').val());

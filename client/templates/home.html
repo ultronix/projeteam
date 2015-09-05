@@ -100,7 +100,7 @@
           {{personne}}
           {{description}}
           {{#if postulants.length}}
-          ({{postulants.length}})
+            ({{postulants.length}})
           {{/if}}
         </div>
       </a>
@@ -134,37 +134,46 @@
                 <!-- Si on a cliqué sur update on met le formulaire d'update -->
                {{>formodif}}
               {{else}}
-                <li>Titre : {{titre}}</li>
-                <li>Description : {{description}}</li>
-                <li>Téléphone : {{tel}}</li>
-                <li>Personne(s) recherchée(s) : {{personne}}</li>
-                <li>Mail : {{mail}}</li>
-                <li>Tags : {{tags}}</li>
-              {{#if postulantsAnnonce}} <!-- S'il ya des postulants -->
-                <li>Ces personnes ont marqué leur intérêt :
-                  {{#each postulantsAnnonce}}
-                  <br>
-                  <a href="users/{{_id}}">{{profile.firstname}}</a>
-                  {{/each}}
-                </li>
-              {{/if}}  
-              {{#if valideDemande}} <!-- S'il ya des demandes validées -->                
-                <li>Ces personnes ont valider la demande :
-                  {{#each valideDemande}}
+                  <li>Titre : {{titre}}</li>
+                  <li>Description : {{description}}</li>
+                  <li>Téléphone : {{tel}}</li>
+                  <li>Personne(s) recherchée(s) : {{personne}}</li>
+                  <li>Mail : {{mail}}</li>
+                  <li>Tags : {{tags}}</li>
+
+                {{#if postulants.length}} <!-- S'il ya des postulants -->
+                  <li>Ces personnes ont marqué leur intérêt :
                     <br>
-                    <a href="users/{{_id}}">{{profile.firstname}}</a>
-                  {{/each}}
-                </li>                
-              {{/if}}
-              {{#if membres}} <!-- S'il ya des membres -->                
-                <li>Membres du projet :
-                  {{#each membres}}
-                    <br>
-                    <a href="users/{{_id}}">{{profile.firstname}}</a>
-                  {{/each}}
-                </li>                
-              {{/if}}             
-                <button class="btn btn-primary mt-10" id='update'>Modifier</button>  
+                    {{#each postulantsAnnonce}}
+                    
+                
+                    <div class="avatar avatar-large avatar-circle" style="display:inline-block">
+                     <a href="users/{{_id}}">
+                      <img class="avatar-image" src={{profile.imageURL}} alt="{{profile.firstname}}" onerror="this.style.display='none';" width="310" height="310">
+                      <span class="avatar-initials">A</span>
+                     </a>
+                    </div>
+                  
+                    {{/each}}
+                  </li>
+                {{/if}}  
+                {{#if valideDemande.length}} <!-- S'il ya des demandes validées -->                
+                  <li>Ces personnes ont valider la demande :
+                    {{#each valideDemande}}
+                      <br>
+                      <a href="users/{{_id}}">{{profile.firstname}}</a>
+                    {{/each}}
+                  </li>                
+                {{/if}}
+                {{#if membres.length}} <!-- S'il ya des membres -->                
+                  <li>Membres du projet :
+                    {{#each membres}}
+                      <br>
+                      <a href="users/{{_id}}">{{profile.firstname}}</a>
+                    {{/each}}
+                  </li>                
+                {{/if}}          
+                  <button class="btn btn-primary mt-10" id='update'>Modifier</button>  
               {{/if}}
             </ul>
            
