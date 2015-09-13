@@ -58,11 +58,11 @@ Template.register.events({
           if (err){
              // handle error
           } else {
-            Images.remove(Session.get('imageId'));
             // handle success depending what you need to do
             var userId = Meteor.userId();
-            var imagesURL = "/uploads/img/places/" + fileObj.collectionName+ "-" + fileObj._id + "-" + fileObj.original.name;
-            Session.set('imageURL', imagesURL);
+            var imagesURL = "http://testal.meteor.com/cfs/files/images/" + fileObj._id;
+            
+            Images.remove(Session.get('imageId'));
             Session.set('imageId', fileObj._id);
             Session.set('emailRegister', $('[name=email]').val());
             Session.set('firstnameRegister', $('[name=firstname]').val());
@@ -73,7 +73,8 @@ Template.register.events({
             Session.set('birthdayRegister', $('[name=birthday]').val());
           }
         });
-     })    
+     }),
+     Session.set('imageURL', imagesURL);
     }
 });
 Template.register.helpers({
